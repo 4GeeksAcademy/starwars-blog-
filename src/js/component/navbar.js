@@ -9,14 +9,12 @@ export const Navbar = () => {
 				<Col>
 					<nav className="navbar navbar-light bg-light mb-3">
 						<Link to="/">
-							<span className="navbar-brand m-3 h1">
-								<img src="../../img/starwarslogo.png" alt="Star Wars logo" width="80" />
+							<span className="navbar-brand m-2 h1">
+								<img src="./starwarslogo.png" width="90" />
 							</span>
 						</Link>
 						<div className="ml-auto">
-							<Link to="/demo">
-								<button className="btn btn-primary">Favorites</button>
-							</Link>
+							<button className="btn btn-primary">Favorites</button>
 						</div>
 					</nav>
 				</Col>
