@@ -6,31 +6,35 @@ import { Context } from "../store/appContext";
 
 const CharCard = props => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => actions.charDescription(props.character.url));
+	const charStore = store.character.filter(char => char.name == props.character.name);
+	useEffect(() => actions.charDescription(props.character.url), []);
 
 	return (
 		<Col>
-			{props.character.uid == props.id ? (
-				<Card>
-					<Card.Img variant="top" src="" />
-					<Card.Body>
-						<Card.Title>{props.character.name}</Card.Title>
+			<Card>
+				<Card.Img variant="top" src="./darthVader.jpg" />
+				<Card.Body>
+					<Card.Title>{props.character.name}</Card.Title>
+					{charStore[0] ? (
 						<Card.Text>
-							<p>Gender: {store.character.gender}</p>
-							<p>Hair Color: {store.character.hair_color}</p>
-							<p>Eye Color: {store.character.eye_color}</p>
+							<p>Gender: {charStore[0].gender}</p>
+							<p>Hair Color: {charStore[0].hair_color}</p>
+							<p>Eye Color: {charStore[0].eye_color}</p>
 						</Card.Text>
-						<Link to={"/single" + props.character.uid}>
-							<Button variant="outline-primary">Learn More</Button>
-						</Link>
-						<Button variant="outline-warning" className="likeBtn">
-							&#9825;
-						</Button>
-					</Card.Body>
-				</Card>
-			) : (
-				""
-			)}
+					) : (
+						""
+					)}
+					<Link to={"/single/" + props.character.uid} data={charStore}>
+						<Button variant="outline-primary">Learn More</Button>
+					</Link>
+					<Button
+						variant="outline-warning"
+						className="likeBtn"
+						onClick={() => actions.addItem(props.character.name)}>
+						&#9825;
+					</Button>
+				</Card.Body>
+			</Card>
 		</Col>
 	);
 };

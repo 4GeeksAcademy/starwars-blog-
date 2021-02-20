@@ -1,15 +1,27 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people: [],
-			character: [],
-			planets: [],
-			planet: [],
-			starShips: [],
-			starShip: []
+			people: [], // all characters info
+			character: [], // 1 character info
+			planets: [], // all planets info
+			planet: [], // 1 planet info
+			starShips: [], // all star ship info
+			starShip: [], // 1 star ship info
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a function
+
+			addItem: item => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, { item }] });
+			},
+
+			removeItem: id => {
+				let value = document.getElementById(id).title;
+				const store = getStore();
+				setStore({ favorites: store.favorites.filter(fav => fav.item !== value) });
+			},
 
 			getPeopleData: async () => {
 				const settings = {
@@ -24,6 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getCharacterDescription: async url => {
+				const store = getStore();
 				const settings = {
 					method: "GET",
 					headers: { "Content-Type": "application/json" }
@@ -32,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const request = await fetch(url, settings);
 				const json = await request.json();
 				const data = json;
-				setStore({ character: data.result.properties });
+				setStore({ character: [...store.character, data.result.properties] });
 			},
 
 			charDescription: url => {
@@ -52,6 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getPlanetDescription: async url => {
+				const store = getStore();
 				const settings = {
 					method: "GET",
 					headers: { "Content-Type": "application/json" }
@@ -60,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const request = await fetch(url, settings);
 				const json = await request.json();
 				const data = json;
-				setStore({ planet: data.result.properties });
+				setStore({ planet: [...store.planet, data.result.properties] });
 			},
 
 			planetDescription: url => {
@@ -80,6 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getStarShipDescription: async url => {
+				const store = getStore();
 				const settings = {
 					method: "GET",
 					headers: { "Content-Type": "application/json" }
@@ -88,7 +103,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const request = await fetch(url, settings);
 				const json = await request.json();
 				const data = json;
-				setStore({ starShip: data.result.properties });
+				setStore({ starShip: [...store.starShip, data.result.properties] });
 			},
 
 			starShipDescription: url => {

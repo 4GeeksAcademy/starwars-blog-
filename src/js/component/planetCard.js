@@ -6,7 +6,8 @@ import { Context } from "../store/appContext";
 
 const PlanetCard = props => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => actions.planetDescription(props.planet.url));
+	const planetStore = store.planet.filter(plt => plt.name == props.planet.name);
+	useEffect(() => actions.planetDescription(props.planet.url), []);
 
 	return (
 		<Col>
@@ -14,14 +15,21 @@ const PlanetCard = props => {
 				<Card.Img variant="top" src="" />
 				<Card.Body>
 					<Card.Title>{props.planet.name}</Card.Title>
-					<Card.Text>
-						<p>Population: {store.planet.population}</p>
-						<p>Terrain: {store.planet.terrain}</p>
-					</Card.Text>
-					<Link to={"/single" + props.planet.uid}>
+					{planetStore[0] ? (
+						<Card.Text>
+							<p>Population: {planetStore[0].population}</p>
+							<p>Terrain: {planetStore[0].terrain}</p>
+						</Card.Text>
+					) : (
+						""
+					)}
+					<Link to={"/single/" + props.planet.uid} data={planetStore}>
 						<Button variant="outline-primary">Learn More</Button>
 					</Link>
-					<Button variant="outline-warning" className="likeBtn">
+					<Button
+						variant="outline-warning"
+						className="likeBtn"
+						onClick={() => actions.addItem(props.planet.name)}>
 						&#9825;
 					</Button>
 				</Card.Body>

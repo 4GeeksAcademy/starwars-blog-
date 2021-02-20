@@ -6,23 +6,31 @@ import { Context } from "../store/appContext";
 
 const ShipCard = props => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => actions.starShipDescription(props.ship.url));
+	const shipStore = store.starShip.filter(ship => ship.name == props.ship.name);
+	useEffect(() => actions.starShipDescription(props.ship.url), []);
 
 	return (
-		<Col id={props.id}>
+		<Col>
 			<Card>
 				<Card.Img variant="top" src="" />
 				<Card.Body>
 					<Card.Title>{props.ship.name}</Card.Title>
-					<Card.Text>
-						<p>Model: {store.starShip.model}</p>
-						<p>Class: {store.starShip.starship_class}</p>
-						<p>Length: {store.starShip.length}</p>
-					</Card.Text>
-					<Link to={"/single" + props.ship.uid}>
+					{shipStore[0] ? (
+						<Card.Text>
+							<p>Model: {shipStore[0].model}</p>
+							<p>Class: {shipStore[0].starship_class}</p>
+							<p>Length: {shipStore[0].starShip.length}</p>
+						</Card.Text>
+					) : (
+						""
+					)}
+					<Link to={"/single/" + props.ship.uid} data={shipStore}>
 						<Button variant="outline-primary">Learn More</Button>
 					</Link>
-					<Button variant="outline-warning" className="likeBtn">
+					<Button
+						variant="outline-warning"
+						className="likeBtn"
+						onClick={() => actions.addItem(props.ship.name)}>
 						&#9825;
 					</Button>
 				</Card.Body>
