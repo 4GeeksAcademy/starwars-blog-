@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<Container>

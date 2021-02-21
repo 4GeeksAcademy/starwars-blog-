@@ -12,14 +12,14 @@ const ShipCard = props => {
 	return (
 		<Col>
 			<Card>
-				<Card.Img variant="top" src="" />
+				<Card.Img variant="top" src="./deathstar.jpg" />
 				<Card.Body>
 					<Card.Title>{props.ship.name}</Card.Title>
 					{shipStore[0] ? (
 						<Card.Text>
 							<p>Model: {shipStore[0].model}</p>
 							<p>Class: {shipStore[0].starship_class}</p>
-							<p>Length: {shipStore[0].starShip.length}</p>
+							<p>Passengers: {shipStore[0].passengers}</p>
 						</Card.Text>
 					) : (
 						""
