@@ -1,11 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 
-export const Single = () => {
+export const Single = props => {
+	const { store, actions } = useContext(Context);
+	const params = useParams();
+	console.log(typeof props.data, "<--- props");
+
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4" />
-
+            <img src="" width="200" />
+			<h1 className="display-4">Name</h1>
+            <p>Description</p>
 			<hr className="my-4" />
 
 			<Link to="/">
@@ -15,4 +22,8 @@ export const Single = () => {
 			</Link>
 		</div>
 	);
+};
+
+Single.propTypes = {
+	data: PropTypes.object
 };
