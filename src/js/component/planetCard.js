@@ -23,7 +23,7 @@ const PlanetCard = props => {
 					) : (
 						""
 					)}
-					<Link to={"/single/" + props.planet.uid} data={planetStore}>
+					<Link to={"/single_planet/" + props.planet.uid} data={planetStore}>
 						<Button variant="outline-primary">Learn More</Button>
 					</Link>
 					<Button

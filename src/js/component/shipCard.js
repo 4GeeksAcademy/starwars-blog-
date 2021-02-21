@@ -24,7 +24,7 @@ const ShipCard = props => {
 					) : (
 						""
 					)}
-					<Link to={"/single/" + props.ship.uid} data={shipStore}>
+					<Link to={"/single_starship/" + props.ship.uid} data={shipStore}>
 						<Button variant="outline-primary">Learn More</Button>
 					</Link>
 					<Button
