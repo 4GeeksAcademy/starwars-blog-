@@ -13,7 +13,7 @@ export const Navbar = () => {
 					<nav className="navbar navbar-light bg-light mb-3">
 						<Link to="/">
 							<span className="navbar-brand m-2 h1">
-								<img src="./starwarslogo.png" width="90" />
+								<img src="./img/starwarslogo.png" width="90" />
 							</span>
 						</Link>
 						<div className="ml-auto">
@@ -34,7 +34,7 @@ export const Navbar = () => {
 											</Dropdown.Item>
 										))
 									) : (
-										<span>Add Items</span>
+										<span>(empty)</span>
 									)}
 								</Dropdown.Menu>
 							</Dropdown>

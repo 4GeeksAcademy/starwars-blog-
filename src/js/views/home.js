@@ -16,30 +16,36 @@ export const Home = () => {
 					<h2 className="heading">Characters</h2>
 				</Col>
 			</Row>
-			<Row className="overFlow">
-				{store.people
-					? store.people.map((elem, index) => <CharCard key={index} id={++index} character={elem} />)
-					: ""}
+			<Row>
+				<div className="d-flex justify-content-between overFlow">
+					{store.people
+						? store.people.map((elem, index) => <CharCard key={index} id={++index} character={elem} />)
+						: ""}
+				</div>
 			</Row>
 			<Row>
 				<Col>
 					<h2 className="heading">Planets</h2>
 				</Col>
 			</Row>
-			<Row className="overFlow">
-				{store.planets
-					? store.planets.map((elem, index) => <PlanetCard key={index} id={++index} planet={elem} />)
-					: ""}
+			<Row>
+				<div className="d-flex justify-content-between overFlow">
+					{store.planets
+						? store.planets.map((elem, index) => <PlanetCard key={index} id={++index} planet={elem} />)
+						: ""}
+				</div>
 			</Row>
 			<Row>
 				<Col>
 					<h2 className="heading">Start Ships</h2>
 				</Col>
 			</Row>
-			<Row className="overFlow">
-				{store.starShips
-					? store.starShips.map((elem, index) => <ShipCard key={index} id={++index} ship={elem} />)
-					: ""}
+			<Row>
+				<div className="d-flex justify-content-between overFlow">
+					{store.starShips
+						? store.starShips.map((elem, index) => <ShipCard key={index} id={++index} ship={elem} />)
+						: ""}
+				</div>
 			</Row>
 		</Container>
 	);

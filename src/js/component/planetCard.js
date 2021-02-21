@@ -12,7 +12,7 @@ const PlanetCard = props => {
 	return (
 		<Col>
 			<Card>
-				<Card.Img variant="top" src="./tatooine.jpg" />
+				<Card.Img variant="top" src="./img/tatooine.jpg" />
 				<Card.Body>
 					<Card.Title>{props.planet.name}</Card.Title>
 					{planetStore[0] ? (
