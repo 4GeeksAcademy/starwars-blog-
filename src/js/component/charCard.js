@@ -12,7 +12,11 @@ const CharCard = props => {
 	return (
 		<Col>
 			<Card>
-				<Card.Img variant="top" src="./img/darthvader.jpg" width="200" />
+				<Card.Img
+					variant="top"
+					src="https://raw.githubusercontent.com/NicolasArayaB/starwars-blog-reading-list/master/dist/img/darthvader.jpg"
+					width="200"
+				/>
 				<Card.Body>
 					<Card.Title>{props.character.name}</Card.Title>
 					{charStore[0] ? (

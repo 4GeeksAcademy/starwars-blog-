@@ -16,7 +16,10 @@ export const SinglePlanet = () => {
 		<Container>
 			<Jumbotron className="jumbo">
 				<div className="d-flex justify-content-between">
-					<img src="../img/tatooine.jpg" width="400" />
+					<img
+						src="https://raw.githubusercontent.com/NicolasArayaB/starwars-blog-reading-list/master/dist/img/tatooine.jpg"
+						width="400"
+					/>
 					<div className="text">
 						{planetStore[0] ? <h1 className="display-4">{planetStore[0].name}</h1> : ""}
 						<p>

@@ -12,7 +12,10 @@ const ShipCard = props => {
 	return (
 		<Col>
 			<Card>
-				<Card.Img variant="top" src="./img/deathstar.jpg" />
+				<Card.Img
+					variant="top"
+					src="https://raw.githubusercontent.com/NicolasArayaB/starwars-blog-reading-list/master/dist/img/deathstar.jpg"
+				/>
 				<Card.Body>
 					<Card.Title>{props.ship.name}</Card.Title>
 					{shipStore[0] ? (
