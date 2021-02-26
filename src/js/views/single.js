@@ -16,7 +16,7 @@ export const Single = () => {
 		<Container>
 			<Jumbotron className="jumbo">
 				<div className="d-flex justify-content-between">
-					<img src="../img/darthVader.jpg" width="400" />
+					<img src="../img/darthvader.jpg" width="400" />
 					<div className="text">
 						{charStore[0] ? <h1 className="display-4">{charStore[0].name}</h1> : ""}
 						<p>
